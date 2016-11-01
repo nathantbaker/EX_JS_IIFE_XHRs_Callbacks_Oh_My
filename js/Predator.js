@@ -1,44 +1,35 @@
-console.log("Predator:", Predator);
-
 var Predator = (function (Predator) {
   "use strict";
 
+  // JSON data pushed here
    var carnivores = [];
    var herbivores = [];
 
-  // Predator should expose two public functions to load each JSON files and stores the array of animals in the appropriate private array. Each of those functions should accept one argument that will store the callback function to be executed.
-
-  Predator.loadCarnivores = function (callbackToInvoke) {
+  Predator.loadCarnivores = function (callBackFunc) {
     var loader = new XMLHttpRequest();
     loader.addEventListener("load", function () {
       carnivores = JSON.parse(this.responseText);
-      console.log("carnivores:", carnivores);
+      callBackFunc(carnivores); // only after pull JSON data, push it to HTML
     });
 
     loader.open("GET", "../JSON/carnivores.json");
     loader.send();
-    // callbackToInvoke(carnivores);
   };
 
-  Predator.loadHerbivores = function (callbackToInvoke) {
+  Predator.loadHerbivores = function (callBackFunc) {
     var loader = new XMLHttpRequest();
     loader.addEventListener("load", function () {
       herbivores = JSON.parse(this.responseText);
-      console.log("herbivores:", herbivores);
+      callBackFunc(herbivores); // only after pull JSON data, push it to HTML
     });
 
     loader.open("GET", "../JSON/herbivores.json");
     loader.send();
-    // callbackToInvoke(herbivores);
   };
-
 
   return Predator;
 
 })(Predator || {});
 
-Predator.loadCarnivores();
-Predator.loadHerbivores();
-
-// In the Predator IIFE, invoke the callback function, passed in from iife-xhr.js, after each file is loaded.
-
+Predator.loadCarnivores(Predator.showCarnivores);
+Predator.loadHerbivores(Predator.showHerbivores);

@@ -1,0 +1,20 @@
+ /* ============================================================
+   Project: NSS Exercise
+   Author:  Nathan T. Baker
+   ============================================================ */
+h1 {
+  color: #555;
+}
+
+body {
+  background-color: #ddd;
+}
+
+.container {
+  background-color: #f4f3ed;
+  border-radius: 0 0 10px 10px;
+  padding: 10px 20px 20px 20px;
+  border: #ccc 1px solid;
+  box-shadow: 1px 2px 5px #ccc;
+  max-width: 600px;
+}
