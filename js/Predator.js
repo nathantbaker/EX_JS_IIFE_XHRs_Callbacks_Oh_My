@@ -12,7 +12,7 @@ var Predator = (function (Predator) {
       callBackFunc(carnivores); // only after pull JSON data, push it to HTML
     });
 
-    loader.open("GET", "../JSON/carnivores.json");
+    loader.open("GET", "JSON/carnivores.json");
     loader.send();
   };
 
@@ -23,7 +23,7 @@ var Predator = (function (Predator) {
       callBackFunc(herbivores); // only after pull JSON data, push it to HTML
     });
 
-    loader.open("GET", "../JSON/herbivores.json");
+    loader.open("GET", "JSON/herbivores.json");
     loader.send();
   };
 
